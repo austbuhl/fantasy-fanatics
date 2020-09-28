@@ -1,0 +1,2 @@
+class OwnerLeague < ApplicationRecord
+end
