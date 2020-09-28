@@ -1,8 +1,5 @@
 class LeaguesController < ApplicationController
   
-  def index
-    @leagues = League.all
-  end
 
   def show
     @league = League.find(params[:id])
@@ -15,7 +12,7 @@ class LeaguesController < ApplicationController
   def create
     league = League.create(league_params)
     if league.valid?
-      redirect_to new_team_path
+      redirect_to league_path(league)
     else
       render :new
     end
@@ -23,6 +20,13 @@ class LeaguesController < ApplicationController
 
   def destroy
     League.find(params[:id]).destroy
+    redirect_to teams_path
+  end
+
+  private
+
+  def league_params
+    params.require(:league).permit(:name)
   end
 
 end

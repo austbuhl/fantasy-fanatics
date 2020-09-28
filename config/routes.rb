@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :players, only: [:index, :show]
-  resources :leagues, except: [:edit, :update]
+  resources :leagues, except: [:index, :edit, :update]
   resources :users, only: [:new, :create, :destroy]
   resources :teams
   resources :rankings

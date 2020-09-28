@@ -1,0 +1,22 @@
+<h1><%= @league.name %></h1>
+
+<table>
+    <tr>
+        <th>Rank</th>
+        <th>Team Name</th>
+        <th>Team Owner</th>
+    </tr>
+
+    <% rank = 1 %>
+    <% @league.teams.each do |team| %>
+            <tr>
+                <td><%= rank %></td>
+                <td><%= link_to team.name, team_path(team) %></td>
+                <td><%= team.owner.username %></td>
+            </tr>
+        <% rank += 1 %>
+    <% end%>
+</table>
+
+<%= button_to "Add Teams", new_team_path, method: "get" %>
+<%= button_to "Delete League", league_path(@league), method: "delete" %>

@@ -16,9 +16,9 @@ class TeamsController < ApplicationController
     end
 
     def create
-        team = Team.create(team_params)
+        team = @current_user.teams.create(team_params)
         if team.valid?
-            redirect_to team_path
+            redirect_to team_path(team)
         else
             render :new
         end
