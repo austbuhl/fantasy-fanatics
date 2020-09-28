@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-    before_action :find_team, only [:show, :edit, :update, :destroy]
+    before_action :find_team, only: [:show, :edit, :update, :destroy]
 
     def index
         # should only call on current_users teams...

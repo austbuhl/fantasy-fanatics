@@ -1,15 +1,19 @@
 class UsersController < ApplicationController
-  
+
+  skip_before_action :authorized, only: [:new, :create, :login, :handle_login]
+
   def new
     @user = User.new
   end
 
   def create
-    user = User.create(user_params)
-    if user.valid?
-      redirect_to new_league_path
+    @user = User.create(user_params)
+    if @user.valid?
+      session[:user] = @user.id
+      redirect_to teams_path
     else
-      render :new
+      flash[:message] = "Passwords don't match"
+      redirect_to new_user_path
     end
   end
 
@@ -18,10 +22,29 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
   end
 
+  def login
+  end
+
+  def handle_login
+    @user = User.find_by(username: params[:username])
+    if @user && @user.authenticate(params[:password])
+      session[:user] = @user.id
+      redirect_to teams_path
+    else
+      flash[:message] = "Incorrect username or password"
+      redirect_to login_path
+    end
+  end
+
+  def logout
+    session[:user] = nil
+    redirect_to login_path
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :password, :password_confirmation, :user_type)
+    params.require(:user).permit(:username, :password, :password_confirmation, :user_type)
   end
 
 end

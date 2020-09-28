@@ -18,13 +18,6 @@ ActiveRecord::Schema.define(version: 2020_09_28_182755) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "owner_leagues", force: :cascade do |t|
-    t.integer "league_id"
-    t.integer "owner_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "player_teams", force: :cascade do |t|
     t.integer "player_id"
     t.integer "team_id"
@@ -50,6 +43,7 @@ ActiveRecord::Schema.define(version: 2020_09_28_182755) do
   create_table "teams", force: :cascade do |t|
     t.string "name"
     t.integer "league_id"
+    t.integer "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
