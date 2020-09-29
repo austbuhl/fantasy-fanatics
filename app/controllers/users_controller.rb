@@ -10,7 +10,11 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.valid?
       session[:user] = @user.id
-      redirect_to teams_path
+        if @user.user_type == "Owner"
+          redirect_to teams_path
+        else
+          redirect_to rankings_path
+        end
     else
       flash[:message] = "Passwords don't match"
       redirect_to new_user_path
@@ -30,7 +34,11 @@ class UsersController < ApplicationController
     
     if @user && @user.authenticate(params[:password])
       session[:user] = @user.id
-      redirect_to teams_path
+      if @user.user_type == "Owner"
+          redirect_to teams_path
+      else
+        redirect_to rankings_path
+      end
     else
       flash[:message] = "Incorrect username or password"
       redirect_to login_path

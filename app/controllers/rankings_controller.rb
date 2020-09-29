@@ -1,5 +1,6 @@
 class RankingsController < ApplicationController
   before_action :find_ranking, only: [:show, :edit, :update, :destroy]
+  before_action :authorized_analyst
 
   def index
     @rankings = Ranking.all
@@ -14,13 +15,17 @@ class RankingsController < ApplicationController
   end
 
   def create
-
-    ranking = @current_user.rankings.create(ranking_params)
-    if ranking.valid?
-      redirect_to ranking_path(ranking)
-    else
-      render :new
+    
+    params[:rankings][:rankings].each do |rank|
+      player = rank[:ranking][:player_id]
+      ranking = rank[:ranking][:ranking]
+      if !ranking.empty?
+        Ranking.create(analyst_id: @current_user.id, player_id: player, ranking: ranking )
+      end
     end
+
+    redirect_to rankings_path
+
   end
 
   def edit
@@ -42,6 +47,13 @@ class RankingsController < ApplicationController
   end
 
   def ranking_params
-    params.require(:rankings).permit(:analyst_id, :player_id, rankings[][:ranking] => [:player_id, :ranking])
+    params.require(:rankings).permit({
+      rankings: [
+        ranking: [
+          :player_id,
+          :ranking
+        ]
+      ]
+    })
   end
 end
