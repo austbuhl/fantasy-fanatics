@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :destroy]
   resources :teams
   resources :rankings
-  resources :player_teams, only: [:new]
+  resources :player_teams, only: [:new, :destroy]
 
   get '/login', to: 'users#login', as: 'login'
   post '/login', to: 'users#handle_login'

@@ -1,27 +1,11 @@
 <h1>New Roster</h1>
 
 
-
 <%= form_for @player_team do |f|%>
   <%= f.label :team_id %>
   <%= f.collection_select(:id, Team.all, :id, :name)%><br>
   <%= f.label :player_id, "QB:" %>
   <%= f.collection_select(:id, Player.where(position: "QB"),:id, :name, {prompt: "Select a QB"}) %>
-  <%= f.label :player_id, "RB:" %>
-  <%= f.collection_select(:id, Player.where(position: "RB"),:id, :name, {prompt: "Select a RB"}) %><br>
-  <%= f.label :player_id, "RB:" %>
-  <%= f.collection_select(:id, Player.where(position: "RB"),:id, :name, {prompt: "Select a RB"}) %><br>
-  <%= f.label :player_id, "WR:" %>
-  <%= f.collection_select(:id, Player.where(position: "WR"),:id, :name, {prompt: "Select a WR"}) %><br>
-  <%= f.label :player_id, "WR:" %>
-  <%= f.collection_select(:id, Player.where(position: "WR"),:id, :name, {prompt: "Select a WR"}) %><br>
-  <%= f.label :player_id, "TE:" %>
-  <%= f.collection_select(:id, Player.where(position: "TE"),:id, :name, {prompt: "Select a TE"}) %><br>
-  <%= f.label :player_id, "Flex:" %>
-  <%= f.collection_select(:id, Player.where(position: ["RB", "WR", "TE"] ),:id, :name, {prompt: "Select a FLEX"}) %><br>
-  <%= f.label :player_id, "D:" %>
-  <%= f.collection_select(:id, Player.where(position: "D"),:id, :name, {prompt: "Select a D"}) %><br>
-  <%= f.label :player_id, "K:" %>
-  <%= f.collection_select(:id, Player.where(position: "K"),:id, :name, {prompt: "Select a K"}) %><br>
+
   <%= f.submit %>
 <% end %>

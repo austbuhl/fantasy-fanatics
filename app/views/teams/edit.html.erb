@@ -1,0 +1,50 @@
+<h1>Edit Roster</h1>
+
+<h4>Roster:</h4>
+<table>
+    <tr>
+        <th>Player</th>
+        <th>Position</th>
+        <th>AVG Ranking</th>
+        <th>Drop Player</th>
+    </tr>
+
+    <% @team.players.each do |player| %>
+        <tr>
+            <td><%= link_to player.name, player_path(player) %> </td>
+            <td><%= player.position %></td>
+            <td><%= player.avg_ranking %></td>
+            <td><%= button_to "Drop Player", player_team_path(player), params: {team: @team}, method: "delete" %></td>
+        </tr>
+    <% end %>
+</table>
+<br>
+<br>    
+<div>
+    <%= form_for @team do |f| %>
+        <%= f.fields_for :players, @team.players.build do |player_fields| %>
+            <%= player_fields.label :name, "Add Player" %>
+            <%= player_fields.text_field :name %>
+        <% end %>
+        <%= f.submit %>
+    <% end %>
+</div>
+
+
+
+
+<%# Potentially add the top 5 available and have user select who to add  %>
+<%# @players = Player.all.sort_by{|player| player.avg_ranking}.take(5) %>
+
+<%# @players.take(5) %>
+
+<%# form_for @team do |f| %>
+    <%# f.fields_for @players do |p| %>
+        <%# p.label :name %>
+        <%# p.radio_button :id, :name  %>
+    <%# end %>
+    <%# f.submit %>
+<%# end %>
+
+
+

@@ -40,7 +40,10 @@ class TeamsController < ApplicationController
 
     def update
         @team.update(team_params)
+        flash[:added] = "Added #{team_params[:players_attributes]["0"]["name"]}"
+        redirect_to team_path(@team)
     end
+
 
     def destroy
         @team.destroy

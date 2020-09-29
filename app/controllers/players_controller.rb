@@ -1,11 +1,11 @@
 class PlayersController < ApplicationController
   def index
-    if params[:sort] != "avg_ranking"
-      @players = Player.order(params[:sort])
+    if params[:search]
+      search_players
     elsif params[:sort] == "avg_ranking"
       @players = Player.all.sort_by{|player| player.avg_ranking}
-    elsif params[:search]
-      search_players
+    elsif params[:sort] != "avg_ranking"
+      @players = Player.order(params[:sort])
     else
       @players = Player.all
     end
