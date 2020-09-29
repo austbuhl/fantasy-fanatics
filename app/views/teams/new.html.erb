@@ -1,11 +1,27 @@
 <h1>New Team Form</h1>
 
 <%= form_for @team do |f|%>
-    <%= f.label :name %>
+    <%= f.label :name, "Team Name" %>
     <%= f.text_field :name%>
     <br>
+    
     <%= f.label :league %>
     <%= f.collection_select :league_id, League.all, :id, :name %>
     <br>
+    
+    <%= f.fields_for :players do |player_fields| %>
+        <% position = player_fields.object.position %>
+        
+        <%= player_fields.label :name, "#{position}" %>
+            <% if position == "FLEX"%>
+                <% position_lookup = ["RB", "WR", "TE"] %>
+            <% else %>
+                <% position_lookup = position %>
+            <% end %>
+
+        <%= player_fields.collection_select(:name, Player.where(position: position_lookup), :name, :name, prompt: "Select a " + "#{position}") %>
+        <br>
+
+    <% end %>
     <%= f.submit %>
 <% end %>

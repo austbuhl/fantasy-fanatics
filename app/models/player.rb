@@ -12,4 +12,10 @@ class Player < ApplicationRecord
     end
     avg.round(2)
   end
+
+  # Simplified... but errors out with players who don't have a ranking
+  # def average
+  #   self.rankings.average(:ranking)
+  # end
+
 end

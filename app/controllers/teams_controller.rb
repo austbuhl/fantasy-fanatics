@@ -13,9 +13,19 @@ class TeamsController < ApplicationController
 
     def new
         @team = Team.new
+        @team.players.build(position: "QB")
+        @team.players.build(position: "RB")
+        @team.players.build(position: "RB")
+        @team.players.build(position: "WR")
+        @team.players.build(position: "WR")
+        @team.players.build(position: "TE")
+        @team.players.build(position: "FLEX")
+        @team.players.build(position: "D")
+        @team.players.build(position: "K")
     end
 
     def create
+
         team = @current_user.teams.create(team_params)
         if team.valid?
             redirect_to team_path(team)
@@ -43,6 +53,6 @@ class TeamsController < ApplicationController
     end
 
     def team_params
-        params.require(:team).permit(:name, :league_id)
+        params.require(:team).permit(:name, :league_id, players_attributes: [:name])
     end
 end
