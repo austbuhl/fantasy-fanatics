@@ -1,2 +1,14 @@
-<h1>Rankings#new</h1>
-<p>Find me in app/views/rankings/new.html.erb</p>
+<h1> New Ranking Form </h1>
+
+<%= form_tag rankings_path do%>
+  <% Player.all.each do |player| %>
+  <%= label_tag player.name %>
+  <%= hidden_field_tag "rankings[rankings][]ranking[player_id]", player.id %>
+  <% label_tag :ranking %>
+  <%= number_field_tag "rankings[rankings][]ranking[ranking]" %>
+  <br>
+
+  <% end %>
+  <br>
+  <%= submit_tag %>
+<% end %>

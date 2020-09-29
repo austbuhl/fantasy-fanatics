@@ -6,7 +6,7 @@ class RankingsController < ApplicationController
   end
 
   def show
-  
+
   end
 
   def new
@@ -14,9 +14,10 @@ class RankingsController < ApplicationController
   end
 
   def create
-    ranking = Ranking.create(ranking_params)
+
+    ranking = @current_user.rankings.create(ranking_params)
     if ranking.valid?
-      redirect_to ranking_path
+      redirect_to ranking_path(ranking)
     else
       render :new
     end
@@ -41,6 +42,6 @@ class RankingsController < ApplicationController
   end
 
   def ranking_params
-    params.permit(:ranking).require(:analyst_id, :player_id)
+    params.require(:rankings).permit(:analyst_id, :player_id, rankings[][:ranking] => [:player_id, :ranking])
   end
 end
