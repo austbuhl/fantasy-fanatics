@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-    before_action :find_team, only: [:show, :edit, :update, :destroy]
+    before_action :find_team, only: [:show, :edit, :update, :destroy, :optimal]
 
     def index
         # should only call on current_users teams...
@@ -42,6 +42,10 @@ class TeamsController < ApplicationController
         @team.update(team_params)
         flash[:added] = "Added #{team_params[:players_attributes]["0"]["name"]}"
         redirect_to team_path(@team)
+    end
+
+    def optimal
+
     end
 
 

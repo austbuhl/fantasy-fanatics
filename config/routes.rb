@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :rankings
   resources :player_teams, only: [:new, :destroy]
 
+  get '/teams/:id/optimal', to: 'teams#optimal', as: 'optimal'
+
   get '/login', to: 'users#login', as: 'login'
   post '/login', to: 'users#handle_login'
   delete '/logout', to: 'users#logout'

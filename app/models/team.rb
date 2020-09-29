@@ -13,4 +13,41 @@ class Team < ApplicationRecord
     end
   end
 
+  def qb1
+    self.players.where(position: "QB").sort_by {|player| player.avg_ranking}.first
+  end
+
+  def rb1
+    self.players.where(position: "RB").sort_by {|player| player.avg_ranking}.first
+  end
+
+  def rb2
+    self.players.where(position: "RB").sort_by {|player| player.avg_ranking}.second
+  end
+
+  def wr1
+    self.players.where(position: "WR").sort_by {|player| player.avg_ranking}.first
+  end
+
+  def wr2
+    self.players.where(position: "WR").sort_by {|player| player.avg_ranking}.second
+  end
+
+  def te1
+    self.players.where(position: "TE").sort_by {|player| player.avg_ranking}.first
+  end
+
+  def flex
+    self.players.where(position: ["RB", "WR", "TE"]).sort_by {|player| player.avg_ranking}[5]
+  end
+
+  def kicker
+    self.players.where(position: "K").sort_by {|player| player.avg_ranking}.first
+  end
+
+  def defense
+    self.players.where(position: "D").sort_by {|player| player.avg_ranking}.first
+  end
+
+
 end
