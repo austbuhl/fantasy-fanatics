@@ -1,9 +1,12 @@
-<h1>New PlayerTeam</h1>
+<h1>New Roster</h1>
+
+
 
 <%= form_for @player_team do |f|%>
-  <% byebug %>
+  <%= f.label :team_id %>
+  <%= f.collection_select(:id, Team.all, :id, :name)%><br>
   <%= f.label :player_id, "QB:" %>
-  <%= f.collection_select(:id, Player.where(position: "QB"),:id, :name, {prompt: "Select a QB"}) %><br>
+  <%= f.collection_select(:id, Player.where(position: "QB"),:id, :name, {prompt: "Select a QB"}) %>
   <%= f.label :player_id, "RB:" %>
   <%= f.collection_select(:id, Player.where(position: "RB"),:id, :name, {prompt: "Select a RB"}) %><br>
   <%= f.label :player_id, "RB:" %>

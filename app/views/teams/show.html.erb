@@ -11,4 +11,4 @@
 </ul>
 
 <h4>Add New Players:</h4>
-<%=button_to "Add Players", new_player_team_path(team: @team), method: "get"  %>
+<%=button_to "Add Players", new_player_team_path, params: {team: @team}, method: "get"  %>
