@@ -10,8 +10,11 @@
     <p style= "color: green;"><%= flash[:added] %></p>
 <% end %>
 
-<%=button_to "Optimize Roster", optimal_path(@team), method: "get"  %>
 
+<div class="btn-group" role="group" aria-label="Basic example">
+    <%=button_to "Optimize Roster", optimal_path(@team), method: "get", class: "btn btn-outline-success mx-2" %> 
+    <%=button_to "Edit Roster", edit_team_path, method: "get", class: "btn btn-outline-success mx-2" %>
+</div>
 <table>
     <tr>
         <th>Player</th>
@@ -29,4 +32,4 @@
 </table>
 <br>
 <br>
-<%=button_to "Edit Roster", edit_team_path, method: "get"  %>
+

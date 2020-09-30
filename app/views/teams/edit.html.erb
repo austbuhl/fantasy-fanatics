@@ -14,7 +14,8 @@
             <td><%= link_to player.name, player_path(player) %> </td>
             <td><%= player.position %></td>
             <td><%= player.avg_ranking %></td>
-            <td><%= button_to "Drop Player", player_team_path(player), params: {team: @team}, method: "delete" %></td>
+            <td><%= button_to "Drop", player_team_path(player), params: {team: @team}, method: "delete", class: "btn btn-outline-danger" %></td>
+</div>
         </tr>
     <% end %>
 </table>

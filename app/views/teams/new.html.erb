@@ -1,27 +1,38 @@
-<h1>New Team Form</h1>
 
-<%= form_for @team do |f|%>
-    <%= f.label :name, "Team Name" %>
-    <%= f.text_field :name%>
-    <br>
-    
-    <%= f.label :league %>
-    <%= f.collection_select :league_id, League.all, :id, :name %>
-    <br>
-    
-    <%= f.fields_for :players do |player_fields| %>
-        <% position = player_fields.object.position %>
+<div class="container">
+    <h1>Create a Team</h1>
+
+    <%= form_for @team do |f|%>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <%= f.label :name, "Team Name" %>
+                <%= f.text_field :name, class: "form-control" %>
+            </div>
         
-        <%= player_fields.label :name, "#{position}" %>
-            <% if position == "FLEX"%>
-                <% position_lookup = ["RB", "WR", "TE"] %>
-            <% else %>
-                <% position_lookup = position %>
+            <div class="form-group col-md-6">
+                <%= f.label :league %>
+                <%= f.collection_select :league_id, League.all, :id, :name, {}, {class: "form-control"} %>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <%= f.fields_for :players do |player_fields| %>
+                <div class="form-group col-md-4">
+
+                    <% position = player_fields.object.position %>
+                        <% if position == "FLEX"%>
+                            <% position_lookup = ["RB", "WR", "TE"] %>
+                        <% else %>
+                            <% position_lookup = position %>
+                        <% end %>
+                
+                    <%= player_fields.label :name, "#{position}" %>
+                    <%= player_fields.collection_select :name, Player.where(position: position_lookup), :name, :name, {prompt: "Select a " + "#{position}"}, {class: "form-control"} %>
+                </div>
             <% end %>
-
-        <%= player_fields.collection_select(:name, Player.where(position: position_lookup), :name, :name, prompt: "Select a " + "#{position}") %>
-        <br>
-
+        </div>
+            
+        <%= f.submit "Create Team", class: "btn btn-success" %>   
     <% end %>
-    <%= f.submit %>
-<% end %>
+</div>
+

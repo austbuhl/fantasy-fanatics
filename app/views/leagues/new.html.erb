@@ -1,7 +1,10 @@
+<div class="container">
+    <h1>Create a League</h1>
+    <%= form_for @league, html: {class: "form-inline"} do |f|%>
+        <%= f.label :name, class: "mr-2"%>
+        <%= f.text_field :name%>
+        <br>
+        <%= f.submit class: "btn btn-success ml-2" %>
+    <% end %>
+</div>
 
-<%= form_for @league do |f|%>
-    <%= f.label :name %>
-    <%= f.text_field :name%>
-    <br>
-    <%= f.submit %>
-<% end %>

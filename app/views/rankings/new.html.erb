@@ -1,14 +1,105 @@
-<h1> New Ranking Form </h1>
+<div class="container">
+  <h1> New Ranking Form </h1>
 
-<%= form_tag rankings_path do%>
-  <% Player.all.each do |player| %>
-  <%= label_tag player.name %>
-  <%= hidden_field_tag "rankings[rankings][]ranking[player_id]", player.id %>
-  <% label_tag :ranking %>
-  <%= number_field_tag "rankings[rankings][]ranking[ranking]" %>
-  <br>
+  <%= form_tag rankings_path do%>
+    <fieldset class= "border p-2">
+      <legend class= "w-auto">QB</legend>
+        <div class="form-row mx-2">  
+          <% Player.all.where(position: "QB").each do |player| %>
+            <div class="col-2">
+              <%= label_tag :player_name, player.name %>
+              <%= hidden_field_tag "rankings[rankings][]ranking[player_id]", player.id %>
+              <% label_tag :ranking %>
+              <%= number_field_tag "rankings[rankings][]ranking[ranking]" %>
+            </div>
+          <% end %>
+        </div>
+    </fieldset>
 
+    <fieldset class= "border p-2">
+      <legend class= "w-auto">RB</legend>
+        <div class="form-row mx-2">  
+          <% Player.all.where(position: "RB").each do |player| %>
+            <div class="col-2">
+              <%= label_tag :player_name, player.name %>
+              <%= hidden_field_tag "rankings[rankings][]ranking[player_id]", player.id %>
+              <% label_tag :ranking %>
+              <%= number_field_tag "rankings[rankings][]ranking[ranking]" %>
+            </div>
+          <% end %>
+        </div>
+    </fieldset>
+
+    <fieldset class= "border p-2">
+      <legend class= "w-auto">WR</legend>
+        <div class="form-row mx-2">  
+          <% Player.all.where(position: "WR").each do |player| %>
+            <div class="col-2">
+              <%= label_tag :player_name, player.name %>
+              <%= hidden_field_tag "rankings[rankings][]ranking[player_id]", player.id %>
+              <% label_tag :ranking %>
+              <%= number_field_tag "rankings[rankings][]ranking[ranking]" %>
+            </div>
+          <% end %>
+        </div>
+    </fieldset>
+
+    <fieldset class= "border p-2">
+      <legend class= "w-auto">TE</legend>
+        <div class="form-row mx-2">  
+          <% Player.all.where(position: "TE").each do |player| %>
+            <div class="col-2">
+              <%= label_tag :player_name, player.name %>
+              <%= hidden_field_tag "rankings[rankings][]ranking[player_id]", player.id %>
+              <% label_tag :ranking %>
+              <%= number_field_tag "rankings[rankings][]ranking[ranking]" %>
+            </div>
+          <% end %>
+        </div>
+    </fieldset>
+
+    <fieldset class= "border p-2">
+      <legend class= "w-auto">FLEX</legend>
+        <div class="form-row mx-2">  
+          <% Player.all.where(position: ["RB", "WR", "TE"]).each do |player| %>
+            <div class="col-2">
+              <%= label_tag :player_name, player.name %>
+              <%= hidden_field_tag "rankings[rankings][]ranking[player_id]", player.id %>
+              <% label_tag :ranking %>
+              <%= number_field_tag "rankings[rankings][]ranking[ranking]" %>
+            </div>
+          <% end %>
+        </div>
+    </fieldset>
+
+      <fieldset class= "border p-2">
+      <legend class= "w-auto">K</legend>
+        <div class="form-row mx-2">  
+          <% Player.all.where(position: "K").each do |player| %>
+            <div class="col-2">
+              <%= label_tag :player_name, player.name %>
+              <%= hidden_field_tag "rankings[rankings][]ranking[player_id]", player.id %>
+              <% label_tag :ranking %>
+              <%= number_field_tag "rankings[rankings][]ranking[ranking]" %>
+            </div>
+          <% end %>
+        </div>
+    </fieldset>
+
+      <fieldset class= "border p-2">
+      <legend class= "w-auto">D/ST</legend>
+        <div class="form-row mx-2">  
+          <% Player.all.where(position: "D").each do |player| %>
+            <div class="col-2">
+              <%= label_tag :player_name, player.name %>
+              <%= hidden_field_tag "rankings[rankings][]ranking[player_id]", player.id %>
+              <% label_tag :ranking %>
+              <%= number_field_tag "rankings[rankings][]ranking[ranking]" %>
+            </div>
+          <% end %>
+        </div>
+    </fieldset>
+    <%= submit_tag "Create Ranking", class: "btn btn-success m-3" %>
   <% end %>
-  <br>
-  <%= submit_tag %>
-<% end %>
+</div>
+
