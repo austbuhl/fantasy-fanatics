@@ -3,6 +3,7 @@ class Player < ApplicationRecord
   has_many :teams, through: :player_teams
   has_many :rankings
 
+
   def avg_ranking
     ranking = 0
     avg = 0

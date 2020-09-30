@@ -1,6 +1,7 @@
 
 <div class="container">
     <h1>Create a Team</h1>
+    <h4>League: <%= League.find(params[:league_id]).name %> </h4>
 
     <%= form_for @team do |f|%>
         <div class="form-row">
@@ -8,11 +9,13 @@
                 <%= f.label :name, "Team Name" %>
                 <%= f.text_field :name, class: "form-control" %>
             </div>
-        
-            <div class="form-group col-md-6">
-                <%= f.label :league %>
-                <%= f.collection_select :league_id, League.all, :id, :name, {}, {class: "form-control"} %>
-            </div>
+
+            <%= f.hidden_field :league_id, value: @league.id %>
+
+            <%# <div class="form-group col-md-6"> %>
+                <%# f.label :league %>
+                <%# f.collection_select :league_id, League.all, :id, :name, {}, {class: "form-control"} %>
+            <%# </div> %>
         </div>
 
         <div class="form-row">
@@ -27,7 +30,7 @@
                         <% end %>
                 
                     <%= player_fields.label :name, "#{position}" %>
-                    <%= player_fields.collection_select :name, Player.where(position: position_lookup), :name, :name, {prompt: "Select a " + "#{position}"}, {class: "form-control"} %>
+                    <%= player_fields.collection_select :name, @league.available_players.find_by(position: position_lookup), :name, :name, {prompt: "Select a " + "#{position}"}, {class: "form-control"} %>
                 </div>
             <% end %>
         </div>
@@ -36,3 +39,5 @@
     <% end %>
 </div>
 
+
+<%# Player.where(position: position_lookup) %>

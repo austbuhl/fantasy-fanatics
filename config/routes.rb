@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'player_teams/new'
   resources :players, only: [:index, :show]
-  resources :leagues, except: [:index, :edit, :update]
+  resources :leagues, except: [:edit, :update]
   resources :users, only: [:new, :create, :destroy]
   resources :teams
   resources :rankings

@@ -18,5 +18,5 @@
     <% end%>
 </table>
 
-<%= button_to "Add Teams", new_team_path, method: "get" %>
+<%= button_to "Add Teams", new_team_path, params: {league_id: @league.id}, method: "get" %>
 <%= button_to "Delete League", league_path(@league), method: "delete" %>

@@ -13,6 +13,7 @@ class TeamsController < ApplicationController
 
     def new
         @team = Team.new
+        @league = League.find(params[:league_id])
         @team.players.build(position: "QB")
         @team.players.build(position: "RB")
         @team.players.build(position: "RB")
@@ -39,9 +40,18 @@ class TeamsController < ApplicationController
     end
 
     def update
+        roster_size = @team.players.length
         @team.update(team_params)
-        flash[:added] = "Added #{team_params[:players_attributes]["0"]["name"]}"
-        redirect_to team_path(@team)
+        new_roster_size = @team.players.length
+
+        if new_roster_size > roster_size
+            flash[:added] = "Added #{team_params[:players_attributes]["0"]["name"]}"
+            redirect_to team_path(@team)
+        else
+            flash[:error] = "#{team_params[:players_attributes]["0"]["name"]} is already on your team."
+            render :edit
+        end
+
     end
 
     def optimal

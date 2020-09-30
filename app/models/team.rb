@@ -9,9 +9,14 @@ class Team < ApplicationRecord
   def players_attributes=(players_attributes)
     players_attributes.values.each do |player_attribute|
         player = Player.find_by(player_attribute)
-        self.players << player
+        
+        unless self.players.include?(player)
+          self.players << player
+        end
     end
   end
+
+
 
   def qb1
     self.players.where(position: "QB").sort_by {|player| player.avg_ranking}.first
