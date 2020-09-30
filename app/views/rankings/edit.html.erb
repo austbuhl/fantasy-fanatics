@@ -1,2 +1,101 @@
-<h1>Rankings#edit</h1>
-<p>Find me in app/views/rankings/edit.html.erb</p>
+<div class="container">
+<h1> Edit Ranking Form </h1>
+
+<%= form_tag rankings_path(@ranking) do%>
+    <fieldset class= "border p-2">
+    <legend class= "w-auto">QB</legend>
+        <% Player.all.where(position: "QB").each do |player| %>
+            <%= label_tag :player_name, player.name %>
+            <%= hidden_field_tag "rankings[rankings][]ranking[player_id]", player.id %>
+            <% label_tag :ranking %>
+            <%= number_field_tag "rankings[rankings][]ranking[ranking]",  , in: 1..Player.all.where(position: "QB").count %>
+        <% end %>
+    </fieldset>
+
+    <fieldset class= "border p-2">
+    <legend class= "w-auto">RB</legend>
+    
+        <% Player.all.where(position: "RB").each do |player| %>
+            
+            <%= label_tag :player_name, player.name %>
+            <%= hidden_field_tag "rankings[rankings][]ranking[player_id]", player.id %>
+            <% label_tag :ranking %>
+            <%= number_field_tag "rankings[rankings][]ranking[ranking]", nil , in: 1..Player.all.where(position: "RB").count %>
+        
+        <% end %>
+    
+    </fieldset>
+
+    <fieldset class= "border p-2">
+    <legend class= "w-auto">WR</legend>
+    
+        <% Player.all.where(position: "WR").each do |player| %>
+        
+            <%= label_tag :player_name, player.name %>
+            <%= hidden_field_tag "rankings[rankings][]ranking[player_id]", player.id %>
+            <% label_tag :ranking %>
+            <%= number_field_tag "rankings[rankings][]ranking[ranking]", nil , in: 1..Player.all.where(position: "WR").count %>
+        
+        <% end %>
+    
+</fieldset>
+
+    <fieldset class= "border p-2">
+      <legend class= "w-auto">TE</legend>
+        
+          <% Player.all.where(position: "TE").each do |player| %>
+            
+              <%= label_tag :player_name, player.name %>
+              <%= hidden_field_tag "rankings[rankings][]ranking[player_id]", player.id %>
+              <% label_tag :ranking %>
+              <%= number_field_tag "rankings[rankings][]ranking[ranking]", nil , in: 1..Player.all.where(position: "TE").count %>
+            
+          <% end %>
+        
+    </fieldset>
+
+    <fieldset class= "border p-2">
+      <legend class= "w-auto">FLEX</legend>
+        
+          <% Player.all.where(position: ["RB", "WR", "TE"]).each do |player| %>
+            
+              <%= label_tag :player_name, player.name %>
+              <%= hidden_field_tag "rankings[rankings][]ranking[player_id]", player.id %>
+              <% label_tag :ranking %>
+              <%= number_field_tag "rankings[rankings][]ranking[ranking]", nil , in: 1..Player.all.where(position: ["RB", "WR", "TE"]).count %>
+            
+          <% end %>
+        
+    </fieldset>
+
+      <fieldset class= "border p-2">
+      <legend class= "w-auto">K</legend>
+        
+          <% Player.all.where(position: "K").each do |player| %>
+            
+              <%= label_tag :player_name, player.name %>
+              <%= hidden_field_tag "rankings[rankings][]ranking[player_id]", player.id %>
+              <% label_tag :ranking %>
+              <%= number_field_tag "rankings[rankings][]ranking[ranking]", nil , in: 1..Player.all.where(position: "K").count %>
+            
+          <% end %>
+        
+    </fieldset>
+
+      <fieldset class= "border p-2">
+      <legend class= "w-auto">D/ST</legend>
+        
+          <% Player.all.where(position: "D").each do |player| %>
+            
+              <%= label_tag :player_name, player.name %>
+              <%= hidden_field_tag "rankings[rankings][]ranking[player_id]", player.id %>
+              <% label_tag :ranking %>
+              <%= number_field_tag "rankings[rankings][]ranking[ranking]", nil , in: 1..Player.all.where(position: "D").count %>
+            
+          <% end %>
+        
+    </fieldset>
+    <%= submit_tag "Create Ranking", class: "btn btn-success m-3" %>
+  <% end %>
+</div>
+

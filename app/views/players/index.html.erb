@@ -11,17 +11,26 @@
 <br>
 
 
-<table>
-  <tr>
-    <th><%= link_to "Player Name", :sort => "name"%> </th>
-    <th><%= link_to "Position", :sort => "position"%> </th>
-    <th><%= link_to "Avg. Ranking", :sort => "avg_ranking"%> </th>
-  </tr>
-<% @players.each do |player| %>
-  <tr>
-    <td><%= player.name%></td>
-    <td><%=player.position %></td><td>
-    <td><%=player.avg_ranking %></td>
-  </tr>
-  <% end %>
-</table>
+  <table>
+    <tr>
+      <% if params[:order] == "DESC" %>
+        <th><%= link_to "Player Name", :sort => "name", :order => "DESC"%> </th>
+        <th><%= link_to "Position", :sort => "position", :order => "DESC"%> </th>
+        <th><%= link_to "Avg. Ranking", :sort => "avg_ranking", :order => "DESC"%> </th>
+      <% else %>
+        <th><%= link_to "Player Name", :sort => "name", :order => "ASC"%> </th>
+        <th><%= link_to "Position", :sort => "position", :order => "ASC"%> </th>
+        <th><%= link_to "Avg. Ranking", :sort => "avg_ranking", :order => "ASC"%> </th>
+      <% end %>
+    </tr>
+
+
+
+  <% @players.each do |player| %>
+    <tr>
+      <td><%= link_to player.name, player_path(player) %></td>
+      <td><%=player.position %></td><td>
+      <td><%=player.avg_ranking %></td>
+    </tr>
+    <% end %>
+  </table>

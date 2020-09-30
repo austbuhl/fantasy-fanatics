@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
 
-    before_action :authorized
+    before_action :authorized, except: [:home]
     helper_method :logged_in?
+
 
 
     def set_current_user
@@ -16,9 +17,13 @@ class ApplicationController < ActionController::Base
     def authorized_analyst
         redirect_to teams_path unless @current_user.user_type == "Analyst"
     end
-
+    
     def authorized
-        redirect_to new_user_path unless logged_in?
+        redirect_to root_path unless logged_in?
     end
+    
+    def home
+    end
+
 
 end

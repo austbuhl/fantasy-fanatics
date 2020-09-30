@@ -1,4 +1,4 @@
-<h1>Rankings#index</h1>
+<h1>Week 4 Rankings</h1>
 <p>Find me in app/views/rankings/index.html.erb</p>
 
 <%= button_to "Create a Ranking", new_ranking_path, method: "get"%>
@@ -13,7 +13,9 @@
         <tr>
             <td><%= ranking.player.name %></td>
             <td><%= ranking.ranking %></td>
+            <td><%= button_to "Delete Ranking", ranking_path(ranking), method: "delete" %></td>
         </tr>
+    
     <% end %>
 
 </table>

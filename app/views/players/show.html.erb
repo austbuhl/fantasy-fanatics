@@ -1,5 +1,26 @@
-<h1><%= @player.name %></h1>
+<div class="container">
+    <h1><%= @player.name %></h1>
 
-<b> Position: </b> <%= @player.position %>
-<br>
-<b> Avg Ranking: </b> <%= @player.avg_ranking %>
+    <b> Position: </b> <%= @player.position %>
+    <br>
+    <b> Avg Ranking: </b> <%= @player.avg_ranking %>
+    <br>
+    <br>
+    <table>
+        <tr>
+            <th>Analyst Name</th>
+            <th>Ranking</th>
+        </tr>
+
+        <% @player.rankings.each do |ranking| %>
+            <tr>
+                <td><%= ranking.analyst.username %></td>
+                <td><%= ranking.ranking %></td>
+            </tr>
+        <% end %>
+
+    </table>
+</div>
+
+
+

@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-
+  root 'application#home'
   get 'player_teams/new'
   resources :players, only: [:index, :show]
   resources :leagues, except: [:edit, :update]
   resources :users, only: [:new, :create, :destroy]
   resources :teams
-  resources :rankings
+  resources :rankings, except: [:edit, :update]
   resources :player_teams, only: [:new, :destroy]
 
   get '/teams/:id/optimal', to: 'teams#optimal', as: 'optimal'
