@@ -2,5 +2,5 @@
 
 <% @leagues.each do |league| %>
     <p><%= league.name %></p>
-    <%= button_to "Join this League", new_team_path, params: {league_id: league.id}, method: "get" %>
+    <%= button_to "View League", league_path(league), method: "get" %>
 <% end %>

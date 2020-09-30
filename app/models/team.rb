@@ -9,7 +9,7 @@ class Team < ApplicationRecord
   def players_attributes=(players_attributes)
     players_attributes.values.each do |player_attribute|
         player = Player.find_by(player_attribute)
-        
+
         unless self.players.include?(player)
           self.players << player
         end
@@ -53,6 +53,21 @@ class Team < ApplicationRecord
   def defense
     self.players.where(position: "D").sort_by {|player| player.avg_ranking}.first
   end
+
+  def starters
+    starters = [self.qb1, self.rb1,self.rb2, self.wr1,self.wr2,self.te1,self.flex,self.defense, self.kicker]
+  end
+
+  # def bench
+  #   bench = self.players.where.not(self.starters)
+  #   # bench =[]
+  #   # self.players.each do |player|
+  #   #   if !player.in?(self.starters)
+  #   #     bench << player
+  #   #   end
+  #   # end
+  #   # bench
+  # end
 
 
 end

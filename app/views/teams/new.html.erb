@@ -28,14 +28,14 @@
                         <% else %>
                             <% position_lookup = position %>
                         <% end %>
-                
+
                     <%= player_fields.label :name, "#{position}" %>
-                    <%= player_fields.collection_select :name, @league.available_players.find_by(position: position_lookup), :name, :name, {prompt: "Select a " + "#{position}"}, {class: "form-control"} %>
+                    <%= player_fields.collection_select :name, @league.available_players.select{|player| position_lookup.include?(player.position)}, :name, :name, {prompt: "Select a " + "#{position}"}, {class: "form-control"} %>
                 </div>
             <% end %>
         </div>
-            
-        <%= f.submit "Create Team", class: "btn btn-success" %>   
+
+        <%= f.submit "Create Team", class: "btn btn-success" %>
     <% end %>
 </div>
 
