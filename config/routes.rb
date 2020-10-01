@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :destroy]
   resources :teams
   resources :rankings, except: [:edit, :update]
-  resources :player_teams, only: [:new, :destroy]
+  resources :player_teams, only: [:new, :destroy, :create]
 
   get '/teams/:id/optimal', to: 'teams#optimal', as: 'optimal'
 

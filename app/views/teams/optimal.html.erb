@@ -1,62 +1,60 @@
-<h1>Optimal Team</h1>
+<div class="container">
+
+    <h1>Optimal Team</h1>
+    <table class="table table-bordered mt-3" >
+        <tr>
+            <th>Position</th>
+            <th>Player</th>
+            <th>AVG Ranking</th>
+        </tr>
+
+        <tr> 
+            <td><%= "QB1" %></td>
+            <td><%= @team.qb1.name %></td>
+            <td><%= @team.qb1.avg_ranking %></td>
+        </tr>
+        <tr> 
+            <td><%= "RB1" %></td>
+            <td><%= @team.rb1.name %></td>
+            <td><%= @team.rb1.avg_ranking %></td>
+        </tr>
+        <tr> 
+            <td><%= "RB2" %></td>
+            <td><%= @team.rb2.name %></td>
+            <td><%= @team.rb2.avg_ranking %></td>
+        </tr>
+        <tr> 
+            <td><%= "WR1" %></td>
+            <td><%= @team.wr1.name %></td>
+            <td><%= @team.wr1.avg_ranking %></td>
+        </tr>
+        <tr> 
+            <td><%= "WR2" %></td>
+            <td><%= @team.wr2.name %></td>
+            <td><%= @team.wr2.avg_ranking %></td>
+        </tr>
+        <tr> 
+            <td><%= "TE1" %></td>
+            <td><%= @team.te1.name %></td>
+            <td><%= @team.te1.avg_ranking %></td>
+        </tr>
+        <tr> 
+            <td><%= "FLEX" %></td>
+            <td><%= @team.flex.name %></td>
+            <td><%= @team.flex.avg_ranking %></td>
+        </tr>
+        <tr> 
+            <td><%= "K" %></td>
+            <td><%= @team.kicker.name %></td>
+            <td><%= @team.kicker.avg_ranking %></td>
+        </tr>
+        <tr> 
+            <td><%= "D/ST" %></td>
+            <td><%= @team.defense.name %></td>
+            <td><%= @team.defense.avg_ranking %></td>
+        </tr>
 
 
-<table>
-    <tr>
-        <th>Position</th>
-        <th>Player</th>
-        <th>AVG Ranking</th>
-    </tr>
+    </table>
 
-    <tr>
-        <td><%= "QB1" %></td>
-        <td><%= @team.qb1.name %></td>
-        <td><%= @team.qb1.avg_ranking %></td>
-    </tr>
-    <tr>
-        <td><%= "RB1" %></td>
-        <td><%= @team.rb1.name %></td>
-        <td><%= @team.rb1.avg_ranking %></td>
-    </tr>
-    <tr>
-        <td><%= "RB2" %></td>
-        <td><%= @team.rb2.name %></td>
-        <td><%= @team.rb2.avg_ranking %></td>
-    </tr>
-    <tr>
-        <td><%= "WR1" %></td>
-        <td><%= @team.wr1.name %></td>
-        <td><%= @team.wr1.avg_ranking %></td>
-    </tr>
-    <tr>
-        <td><%= "WR2" %></td>
-        <td><%= @team.wr2.name %></td>
-        <td><%= @team.wr2.avg_ranking %></td>
-    </tr>
-    <tr>
-        <td><%= "TE1" %></td>
-        <td><%= @team.te1.name %></td>
-        <td><%= @team.te1.avg_ranking %></td>
-    </tr>
-    <tr>
-        <td><%= "FLEX" %></td>
-        <td><%= @team.flex.name %></td>
-        <td><%= @team.flex.avg_ranking %></td>
-    </tr>
-    <tr>
-        <td><%= "K" %></td>
-        <td><%= @team.kicker.name %></td>
-        <td><%= @team.kicker.avg_ranking %></td>
-    </tr>
-    <tr>
-        <td><%= "D/ST" %></td>
-        <td><%= @team.defense.name %></td>
-        <td><%= @team.defense.avg_ranking %></td>
-    </tr>
-
-BENCH
-
-  <%= @team.reverse.each
-
-
-</table>
+</div>
