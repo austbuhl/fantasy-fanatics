@@ -4,7 +4,10 @@ class PlayerTeamsController < ApplicationController
   end
 
   def create
-    @player_team = PlayerTeam.create
+    @player_team = PlayerTeam.create(player_id: params[:player], team_id: params[:team])
+    flash[:added] = "Added #{Player.find(params[:player]).name}"
+    redirect_to team_path(params[:team])
+
   end
 
   def destroy

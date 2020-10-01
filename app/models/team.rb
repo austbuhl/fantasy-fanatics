@@ -16,8 +16,6 @@ class Team < ApplicationRecord
     end
   end
 
-
-
   def qb1
     self.players.where(position: "QB").sort_by {|player| player.avg_ranking}.first
   end
@@ -58,16 +56,9 @@ class Team < ApplicationRecord
     starters = [self.qb1, self.rb1,self.rb2, self.wr1,self.wr2,self.te1,self.flex,self.defense, self.kicker]
   end
 
-  # def bench
-  #   bench = self.players.where.not(self.starters)
-  #   # bench =[]
-  #   # self.players.each do |player|
-  #   #   if !player.in?(self.starters)
-  #   #     bench << player
-  #   #   end
-  #   # end
-  #   # bench
-  # end
+  def bench
+    self.players.where.not(id: starters)
+  end
 
 
 end
