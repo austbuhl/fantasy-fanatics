@@ -1,26 +1,30 @@
 <div class="container">
     <h1><%= @player.name %></h1>
 
-    <b> Position: </b> <%= @player.position %>
-    <br>
-    <b> Avg Ranking: </b> <%= @player.avg_ranking %>
-    <br>
-    <br>
-    <table>
-        <tr>
-            <th>Analyst Name</th>
-            <th>Ranking</th>
-        </tr>
 
-        <% @player.rankings.each do |ranking| %>
+    <div class="card" style="width: 30rem;">
+      <%= image_tag @player.photo_url, :class => "card-img-top" %>
+      <br>
+      <br>
+      <div class="card-body">
+        <b> Position: </b> <%= @player.position %>
+        <br>
+        <b> Avg Ranking: </b> <%= @player.avg_ranking %>
+        <br>
+        <br>
+        <table>
             <tr>
-                <td><%= ranking.analyst.username %></td>
-                <td><%= ranking.ranking %></td>
+                <th>Analyst Name</th>
+                <th>Ranking</th>
             </tr>
-        <% end %>
 
-    </table>
-</div>
+            <% @player.rankings.each do |ranking| %>
+                <tr>
+                    <td><%= ranking.analyst.username %></td>
+                    <td><%= ranking.ranking %></td>
+                </tr>
+          <% end %>
 
-
-
+        </table>
+      </div>
+    </div>

@@ -1,9 +1,9 @@
 <% # views/players/index.html.erb %>
 
 <h1>Players List</h1>
-
+<br>
 <%= form_tag(players_path, method: :get) do %>
-  <p> Search for a player </p>
+  <h4> Search for a Player </h4>
   <%= text_field_tag(:search, params[:search]) %>
   <%= submit_tag ("Search") %>
 <% end %>
@@ -11,7 +11,8 @@
 <br>
 
 
-  <table>
+  <table class= "table table-bordered table-sm">
+    <thead class="thead-light">
     <tr>
       <% if params[:order] == "DESC" %>
         <th><%= link_to "Player Name", :sort => "name", :order => "DESC"%> </th>
@@ -29,7 +30,7 @@
   <% @players.each do |player| %>
     <tr>
       <td><%= link_to player.name, player_path(player) %></td>
-      <td><%=player.position %></td><td>
+      <td><%=player.position %></td>
       <td><%=player.avg_ranking %></td>
     </tr>
     <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_28_182755) do
+ActiveRecord::Schema.define(version: 2020_10_01_013154) do
 
   create_table "leagues", force: :cascade do |t|
     t.string "name"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2020_09_28_182755) do
     t.string "position"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "photo_url"
   end
 
   create_table "rankings", force: :cascade do |t|
