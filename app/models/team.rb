@@ -69,5 +69,4 @@ class Team < ApplicationRecord
   #   # bench
   # end
 
-
 end
