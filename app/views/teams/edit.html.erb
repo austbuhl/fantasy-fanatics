@@ -16,7 +16,7 @@
 
         <% @team.players.each do |player| %>
             <tr>
-                <td><%= link_to player.name, player_path(player) %> </td>
+                <td><%= image_tag player.photo_url %> <%= link_to player.name, player_path(player) %> </td>
                 <td><%= player.position %></td>
                 <td><%= player.avg_ranking %></td>
                 <td><%= button_to "Drop", player_team_path(player), params: {team: @team}, method: "delete", class: "btn btn-outline-danger btn-sm" %></td>
@@ -39,7 +39,7 @@
         <% best_available = @team.league.available_players.sort_by {|player| player.avg_ranking}.take(5)%>
         <% best_available.each do |player| %>
         <tr>
-            <td><%= link_to player.name, player_path(player) %></td>
+            <td><%= image_tag player.photo_url %> <%= link_to player.name, player_path(player) %></td>
             <td><%= player.position %></td>
             <td><%= player.avg_ranking %></td>
             <td><%= button_to "Add", player_teams_path, params: {team: @team, player: player }, class: "btn btn-outline-success btn-sm" %></td>

@@ -1,21 +1,56 @@
-<h1>Create Account</h1>
+<body class= "login_background">
+  <div class="signup_container">
 
-<% if flash[:message] %>
-  <%= flash[:message] %>
-<% end %>
-<br>
-<%= form_for @user do |f|%>
-  <%= f.label :username %>
-  <%= f.text_field :username%>
-  <br>
-  <%= f.label :user_type %>
-  <%= f.select :user_type, ['Owner', 'Analyst'] %>
-  <br>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <br>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-  <br>
-  <%= f.submit %>
-<% end %>
+    <div class="d-flex justify-content-center h-100">
+      <div class="signup_card">
+        <div class="card-header">
+          <h1>Fantasy Fanatics</h1>
+          <h4>Create an Account</h4>
+          <img src="https://static.www.nfl.com/image/private/t_editorial_landscape_8_desktop_mobile/league/uecqonpcbt3dxbrhabz4.jpg" alt="Football" width="100px">
+        </div>
+        <div class="card-body">
+          <% if flash[:message] %>
+            <%= flash[:message] %>
+          <% end %>
+            <%= form_for @user do |f|%>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                  <% f.label :username %>
+              </div>
+                  <%= f.text_field :username, :class => "form-control", :placeholder => "username"%>
+            </div>
+
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                  <% f.label :user_type %>
+              </div>
+                  <%= f.select :user_type, ['Owner', 'Analyst'], :class => "form-control"%>
+            </div>
+
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                  <% f.label :password %>
+              </div>
+                  <%= f.password_field :password, :class => "form-control", :placeholder => "password" %>
+            </div>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-check-double"></i></span>
+                  <% f.label :password_confirmation %>
+              </div>
+                  <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "password confirmation" %>
+            </div>
+                <div class="form-group">
+                  <%= f.submit "Create Account!", :class=>"btn float-right signup_btn" %>
+                </div>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>

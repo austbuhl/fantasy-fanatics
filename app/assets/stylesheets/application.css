@@ -16,7 +16,7 @@
 
  @import url('https://fonts.googleapis.com/css?family=Numans');
 
- html,body{
+ .login_background {
  background-image: url('https://images.pexels.com/photos/290635/pexels-photo-290635.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
  background-size: cover;
  background-repeat: no-repeat;
@@ -29,9 +29,23 @@
  align-content: center;
  }
 
+ .signup_container{
+    height: 100%;
+    align-content: center;
+    }
+
+.signup_card{
+    height: 475px;
+    margin-top: 100px;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(224,224,224,0.8) !important;
+}
+
+
  .login_card{
  height: 370px;
- margin-top: auto;
+ margin-top: 100px;
  margin-bottom: auto;
  width: 400px;
  background-color: rgba(224,224,224,0.8) !important;
@@ -93,6 +107,18 @@
  color: black;
  background-color: white;
  }
+
+.signup_btn{
+    color: white;
+    background-color: #004d20;
+    width: 175px;
+}
+
+.signup_btn:hover{
+    color: black;
+    background-color: white;
+}
+
 
  .links{
  color: dark;

@@ -16,16 +16,17 @@
         <%=button_to "Optimize Roster", optimal_path(@team), method: "get", class: "btn btn-outline-success mx-2" %> 
         <%=button_to "Edit Roster", edit_team_path, method: "get", class: "btn btn-outline-success mx-2" %>
     </div>
-    <table class="table table-bordered mt-3">
-        <tr>
-            <th>Player</th>
-            <th>Position</th>
-            <th>AVG Ranking</th>
-        </tr>
-
+    <table class= "table table-bordered table-sm mt-3">
+        <thead class="thead-light">
+            <tr>
+                <th>Player</th>
+                <th>Position</th>
+                <th>AVG Ranking</th>
+            </tr>
+        </thead>
         <% @team.players.each do |player| %>
             <tr>
-                <td><%= link_to player.name, player_path(player) %> </td>
+                <td><%= image_tag player.photo_url %><%= link_to player.name, player_path(player) %> </td>
                 <td><%= player.position %></td>
                 <td><%= player.avg_ranking %></td>
             </tr>
