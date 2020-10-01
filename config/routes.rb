@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'application#home'
+  root 'users#login'
   get 'player_teams/new'
   resources :players, only: [:index, :show]
   resources :leagues, except: [:edit, :update]

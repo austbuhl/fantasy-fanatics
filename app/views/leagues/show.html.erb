@@ -1,22 +1,28 @@
-<h1><%= @league.name %></h1>
+<div class="container">
+  <h1><%= @league.name %></h1>
 
-<table>
-    <tr>
-        <th>Rank</th>
-        <th>Team Name</th>
-        <th>Team Owner</th>
-    </tr>
+  <table class= "table table-bordered table-sm ">
+    <thead class="thead-dark">
+      <tr>
+          <th>Rank</th>
+          <th>Team Name</th>
+          <th>Team Owner</th>
+      </tr>
+    </thead>
+    <tbody class = "table-white">
+      <% rank = 1 %>
+      <% @league.teams.each do |team| %>
+              <tr>
+                  <td><%= rank %></td>
+                  <td><%= link_to team.name, team_path(team) %></td>
+                  <td><%= team.owner.username %></td>
+              </tr>
+          <% rank += 1 %>
+      <% end%>
+    </tbody>
+  </table>
 
-    <% rank = 1 %>
-    <% @league.teams.each do |team| %>
-            <tr>
-                <td><%= rank %></td>
-                <td><%= link_to team.name, team_path(team) %></td>
-                <td><%= team.owner.username %></td>
-            </tr>
-        <% rank += 1 %>
-    <% end%>
-</table>
-
-<%= button_to "Join League", new_team_path, params: {league_id: @league.id}, method: "get" %>
-<%= button_to "Delete League", league_path(@league), method: "delete" %>
+  <%= button_to "Join League", new_team_path, params: {league_id: @league.id}, method: "get", class: "btn btn-success"  %>
+  <br>
+  <%= button_to "Delete League", league_path(@league), method: "delete", class: "btn btn-danger"  %>
+</div>

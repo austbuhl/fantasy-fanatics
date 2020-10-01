@@ -8,14 +8,14 @@
           <div class="input-group-prepend">
             <%= submit_tag "Search", class: "btn btn-primary" %>
           </div>
-      </div>  
+      </div>
   <% end %>
   <br>
   <br>
 
 
     <table class= "table table-bordered table-sm">
-      <thead class="thead-light">
+      <thead class="thead-dark" style="text-color: white">
       <tr>
         <% if params[:order] == "DESC" %>
           <th><%= link_to "Player Name", :sort => "name", :order => "DESC"%> </th>
@@ -27,15 +27,16 @@
           <th><%= link_to "Avg. Ranking", :sort => "avg_ranking", :order => "ASC"%> </th>
         <% end %>
       </tr>
-
-    <% @players.each do |player| %>
-      <tr>
-        <td><%= link_to player.name, player_path(player) %></td>
-        <td><%=player.position %></td>
-        <td><%=player.avg_ranking %></td>
-      </tr>
-      <% end %>
+      </thead>
+      <tbody class="table-white">
+      <% @players.each do |player| %>
+        <tr>
+          <td><%= image_tag player.photo_url, class: "thumbnail"  %><%= link_to player.name, player_path(player) %></td>
+          <td><%=player.position %></td>
+          <td><%=player.avg_ranking %></td>
+        </tr>
+        <% end %>
+      </tbody>
     </table>
 
 </div>
-

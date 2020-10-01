@@ -1,6 +1,7 @@
-<h1>Join a League</h1>
-
-<% @leagues.each do |league| %>
-    <p><%= league.name %></p>
-    <%= button_to "View League", league_path(league), method: "get" %>
-<% end %>
+<div class="container">
+  <h1>Join a League</h1>
+    <% @leagues.each do |league| %>
+        <p><%= league.name %></p>
+        <%= button_to "View League", league_path(league), method: "get" %>
+    <% end %>
+</div>
