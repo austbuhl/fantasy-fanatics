@@ -60,5 +60,4 @@ class Team < ApplicationRecord
     self.players.where.not(id: starters)
   end
 
-
 end
