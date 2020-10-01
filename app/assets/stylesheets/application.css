@@ -13,3 +13,91 @@
  *= require_tree .
  *= require_self
  */
+
+ @import url('https://fonts.googleapis.com/css?family=Numans');
+
+ html,body{
+ background-image: url('https://images.pexels.com/photos/290635/pexels-photo-290635.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+ background-size: cover;
+ background-repeat: no-repeat;
+ height: 100%;
+ font-family: 'Numans', sans-serif;
+ }
+
+ .login_container{
+ height: 100%;
+ align-content: center;
+ }
+
+ .login_card{
+ height: 370px;
+ margin-top: auto;
+ margin-bottom: auto;
+ width: 400px;
+ background-color: rgba(224,224,224,0.8) !important;
+ }
+
+ .social_icon span{
+ font-size: 60px;
+ margin-left: 10px;
+ color: #004d20;
+ }
+
+ .social_icon span:hover{
+ color: white;
+ cursor: pointer;
+ }
+
+ .login_card-header h3{
+ color: white;
+ }
+
+ .social_icon{
+ position: absolute;
+ right: 20px;
+ top: -45px;
+ }
+
+ .input-group-prepend span{
+ width: 50px;
+ background-color: #004d20;
+ color: white;
+ border:0 !important;
+ }
+
+ input:focus{
+ outline: 0 0 0 0  !important;
+ box-shadow: 0 0 0 0 !important;
+
+ }
+
+ .remember{
+ color: black;
+ }
+
+ .remember input
+ {
+ width: 20px;
+ height: 20px;
+ margin-left: 15px;
+ margin-right: 5px;
+ }
+
+ .login_btn{
+ color: white;
+ background-color: #004d20;
+ width: 100px;
+ }
+
+ .login_btn:hover{
+ color: black;
+ background-color: white;
+ }
+
+ .links{
+ color: dark;
+ }
+
+ .links a{
+ margin-left: 4px;
+ }
