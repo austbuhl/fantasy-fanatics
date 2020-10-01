@@ -129,21 +129,27 @@
 }
 
 
- .links{
- color: dark;
- }
+.links{
+color: dark;
+}
 
- .links a{
- margin-left: 4px;
- }
+.links a{
+margin-left: 4px;
+}
 
- .table-white{
-   background-color: white;
- }
+.table-white{
+  background-color: white;
+}
 
- .thumbnail{
-   max-width: 100px;
-   max-height: 100px;
-   margin-right: 50px;
-   object-fit: contain;
- }
+.form-style {
+  background-color: white;
+  border: 1px solid black;
+}
+
+.thumbnail{
+  max-width: 100px;
+  max-height: 100px;
+  margin-right: 50px;
+  object-fit: contain;
+}
+

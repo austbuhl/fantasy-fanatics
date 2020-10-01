@@ -1,7 +1,26 @@
 <div class="container">
-  <h1>Join a League</h1>
+  <h1 class = "mt-3">Join a League</h1>
+  <div class="row m-3">
     <% @leagues.each do |league| %>
-        <p><%= league.name %></p>
-        <%= button_to "View League", league_path(league), method: "get" %>
+      <div class="card m-3 border-secondary" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= league.name %></h5>
+          <h6 class="card-subtitle mt-2 text-muted">Standings</h6>
+            <ul class="list-group list-group-flush">
+              <% league.teams[0..2].each do |team|%>
+                <li class="list-group-item"><%= team.name %></li>
+              <% end%>
+            </ul>
+        </div>
+  
+        <div class="card-footer">
+          <%= button_to "View League", league_path(league), method: "get", class: "btn btn-primary btn-sm" %>
+        </div>
+      </div>
     <% end %>
+  
+  
+  </div>
+
 </div>

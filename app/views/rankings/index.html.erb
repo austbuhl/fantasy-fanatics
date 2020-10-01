@@ -14,10 +14,10 @@
             </thead>
             <tbody class= "table-white">
             <% @current_user.rankings.order(:ranking).each do |ranking| %>
-                <tr>
-                    <td><%= image_tag ranking.player.photo_url, class: "thumbnail" %><%= ranking.player.name %></td>
-                    <td><%= ranking.ranking %></td>
-                    <td><%= button_to "Delete", ranking_path(ranking), method: "delete", class: "btn btn-outline-danger btn-sm" %></td>
+                <tr >
+                    <td class="align-middle"><%= image_tag ranking.player.photo_url, class: "thumbnail" %><%= ranking.player.name %></td>
+                    <td class="align-middle"><%= ranking.ranking %></td>
+                    <td class="align-middle"><%= button_to "Delete", ranking_path(ranking), method: "delete", class: "btn btn-outline-danger btn-sm" %></td>
                 </tr>
             <% end %>
             </tbody>

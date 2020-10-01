@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #
+
 League.create(name: "League1")
 
 User.create(username: "Owner1", user_type: "owner", password_digest: "abc123")

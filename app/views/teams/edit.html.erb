@@ -1,43 +1,43 @@
 <div class="container">
     <h1>Edit Roster</h1>
 
-    <table class= "table table-bordered table-sm ">
-      <thead class="thead-light">
-        <tr>
-          <th>Player</th>
-          <th>Position</th>
-          <th>AVG Ranking</th>
-          <th>Drop Player</th>
-        </tr>
-      </thead>
-        <% if flash[:error] %>
-            <p style= "color: red;"><%= flash[:error] %></p>
-        <% end %>
-          <tbody class= "table-white">
-        <% @team.players.each do |player| %>
+        <table class= "table table-bordered table-sm ">
+        <thead class="thead-dark">
             <tr>
-                <td><%= image_tag player.photo_url, class: "thumbnail"  %> <%= link_to player.name, player_path(player) %> </td>
-                <td><%= player.position %></td>
-                <td><%= player.avg_ranking %></td>
-                <td><%= button_to "Drop", player_team_path(player), params: {team: @team}, method: "delete", class: "btn btn-outline-danger btn-sm" %></td>
-    </div>
+            <th>Player</th>
+            <th>Position</th>
+            <th>AVG Ranking</th>
+            <th>Drop Player</th>
             </tr>
-        <% end %>
-      </tbody>
+        </thead>
+            <% if flash[:error] %>
+                <p style= "color: red;"><%= flash[:error] %></p>
+            <% end %>
+            <tbody class= "table-white">
+            <% @team.players.each do |player| %>
+                <tr>
+                    <td><%= image_tag player.photo_url, class: "thumbnail"  %> <%= link_to player.name, player_path(player) %> </td>
+                    <td><%= player.position %></td>
+                    <td><%= player.avg_ranking %></td>
+                    <td><%= button_to "Drop", player_team_path(player), params: {team: @team}, method: "delete", class: "btn btn-outline-danger btn-sm" %></td>
+        </div>
+                </tr>
+            <% end %>
+        </tbody>
     </table>
     <br>
     <br>
 
     <h4>Best Available Players</h4>
     <table class= "table table-bordered table-sm">
-      <thead class="thead-dark">
-        <tr>
-            <th>Player</th>
-            <th>Position</th>
-            <th>AVG Ranking</th>
-            <th>Drop Player</th>
-        </tr>
-      </thead>
+        <thead class="thead-dark">
+            <tr>
+                <th>Player</th>
+                <th>Position</th>
+                <th>AVG Ranking</th>
+                <th>Add Player</th>
+            </tr>
+        </thead>
       <tbody class= "table-white">
         <% best_available = @team.league.available_players.sort_by {|player| player.avg_ranking}.take(5)%>
         <% best_available.each do |player| %>
