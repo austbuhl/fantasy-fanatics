@@ -28,7 +28,7 @@
         <% end %>
       </tr>
       </thead>
-      <tbody class="table-white>
+      <tbody class="table-white">
       <% @players.each do |player| %>
         <tr>
           <td><%= image_tag player.photo_url, class: "thumbnail"  %><%= link_to player.name, player_path(player) %></td>
