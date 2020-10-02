@@ -3,15 +3,19 @@ class Team < ApplicationRecord
   belongs_to :league
   has_many :player_teams
   has_many :players, through: :player_teams
+  # validates :name, presence: true
 
+  # validates :players.count , numericality: {greater_than: 8 }
   # accepts_nested_attributes_for :players
 
   def players_attributes=(players_attributes)
     players_attributes.values.each do |player_attribute|
         player = Player.find_by(player_attribute)
-
-        unless self.players.include?(player)
-          self.players << player
+        if player
+          unless self.players.include?(player) 
+            self.players << player
+          end
+        else
         end
     end
   end

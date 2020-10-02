@@ -1,9 +1,9 @@
 
-<div class="container">
+<div class="container mt-3">
     <h1>Create a Team</h1>
     <h4>League: <%= League.find(params[:league_id]).name %> </h4>
 
-    <%= form_for @team do |f|%>
+    <%= form_for @team, html: {class: "form-style p-4 mt-4"} do |f|%>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <%= f.label :name, "Team Name" %>

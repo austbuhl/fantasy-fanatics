@@ -26,6 +26,14 @@ class League < ApplicationRecord
     available
   end
 
+  def random_logo
+    logos = ["https://www.flaticon.com/svg/static/icons/svg/2997/2997120.svg", 
+              "https://www.flaticon.com/svg/static/icons/svg/3507/3507664.svg", 
+              "https://www.flaticon.com/svg/static/icons/svg/521/521789.svg",
+              "https://www.flaticon.com/svg/static/icons/svg/2942/2942990.svg"]
+    logos.sample
+  end
+
 
 
 end

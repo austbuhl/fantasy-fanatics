@@ -3,7 +3,7 @@
   <div class="row m-3">
     <% @leagues.each do |league| %>
       <div class="card m-3 border-secondary" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
+        <img class="card-img-top thumbnail mt-4 mw-100" src=<%= league.random_logo %> alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title"><%= league.name %></h5>
           <h6 class="card-subtitle mt-2 text-muted">Standings</h6>
