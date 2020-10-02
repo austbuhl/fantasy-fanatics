@@ -23,7 +23,7 @@ class LeaguesController < ApplicationController
 
   def destroy
     League.find(params[:id]).destroy
-    redirect_to teams_path
+    redirect_to leagues_path
   end
 
   private
