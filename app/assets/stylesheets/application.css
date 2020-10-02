@@ -94,6 +94,10 @@
 
  }
 
+ td {
+  align-items: center;
+}
+
  .remember{
  color: black;
  }
