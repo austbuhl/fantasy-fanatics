@@ -7,6 +7,9 @@
           <img src="https://i.ibb.co/4ShsJh9/FANTASY-FANATICS-2.jpg" alt="Football" width="460">
         </div>
         <div class="card-body">
+            <% if flash[:login_error] %>
+              <%= flash[:login_error] %>
+            <% end %>
             <%= form_tag "/login" do  %>
             <div class="input-group form-group">
               <div class="input-group-prepend">

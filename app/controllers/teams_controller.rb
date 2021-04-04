@@ -61,6 +61,7 @@ class TeamsController < ApplicationController
 
     def destroy
         @team.destroy
+        redirect_to leagues_path
     end
 
     private

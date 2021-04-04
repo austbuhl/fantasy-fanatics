@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 
   def handle_login
     @user = User.find_by(username: params[:username])
-    
+
     if @user && @user.authenticate(params[:password])
       session[:user] = @user.id
       if @user.user_type == "Owner"
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
         redirect_to rankings_path
       end
     else
-      flash[:message] = "Incorrect username or password"
+      flash[:login_error] = "Incorrect username or password"
       redirect_to login_path
     end
   end

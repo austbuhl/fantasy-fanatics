@@ -2,8 +2,14 @@
   <h1>Players List</h1>
   <br>
 
+<div style="color: red;">
+  <% if flash[:message] %>
+    <%= flash[:message] %>
+  <% end %>
+</div>
+
   <%= form_tag(players_path, method: :get) do %>
-      <div class="input-group col-6">
+      <div class="input-group col-6 mt-2">
         <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for a Player" %>
           <div class="input-group-prepend">
             <%= submit_tag "Search", class: "btn btn-primary" %>
@@ -18,7 +24,7 @@
       <thead class="thead-dark" style="text-color: white">
       <tr>
         <% if params[:order] == "DESC" %>
-          <th class = "text-center"><%= link_to "Player", :sort => "name", :order => "DESC"%> </th>
+          <th><%= link_to "Player", :sort => "name", :order => "DESC"%> </th>
           <th class = "text-center"><%= link_to "Position", :sort => "position", :order => "DESC"%> </th>
           <th class = "text-center"><%= link_to "Avg. Ranking", :sort => "avg_ranking", :order => "DESC"%> </th>
         <% else %>

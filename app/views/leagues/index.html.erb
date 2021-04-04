@@ -13,14 +13,14 @@
               <% end%>
             </ul>
         </div>
-  
+
         <div class="card-footer">
           <%= button_to "View League", league_path(league), method: "get", class: "btn btn-primary btn-sm" %>
         </div>
       </div>
     <% end %>
-  
-  
+    <%= button_to "Create a New League", new_league_path, method: "get", class: "btn btn-success mt-3" %>
+
   </div>
 
 </div>

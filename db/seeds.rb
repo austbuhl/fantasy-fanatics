@@ -8,19 +8,19 @@
 
 #
 
-League.create(name: "League1")
-
-User.create(username: "Owner1", user_type: "owner", password_digest: "abc123")
-User.create(username: "Owner2", user_type: "owner", password_digest: "abc123")
-User.create(username: "Owner3", user_type: "owner", password_digest: "abc123")
-User.create(username: "Analyst1", user_type: "analyst", password_digest: "abc123")
-User.create(username: "Analyst2", user_type: "analyst", password_digest: "abc123")
-User.create(username: "Analyst3", user_type: "analyst", password_digest: "abc123")
-
-
-Team.create(name: "Team1", owner_id: 1, league_id: 1)
-Team.create(name: "Team2", owner_id: 2, league_id: 1)
-Team.create(name: "Team3", owner_id: 3, league_id: 1)
+# League.create(name: "League1")
+#
+# User.create(username: "Owner1", user_type: "owner", password_digest: "abc123")
+# User.create(username: "Owner2", user_type: "owner", password_digest: "abc123")
+# User.create(username: "Owner3", user_type: "owner", password_digest: "abc123")
+# User.create(username: "Analyst1", user_type: "analyst", password_digest: "abc123")
+# User.create(username: "Analyst2", user_type: "analyst", password_digest: "abc123")
+# User.create(username: "Analyst3", user_type: "analyst", password_digest: "abc123")
+#
+#
+# Team.create(name: "Team1", owner_id: 1, league_id: 1)
+# Team.create(name: "Team2", owner_id: 2, league_id: 1)
+# Team.create(name: "Team3", owner_id: 3, league_id: 1)
 
 Player.create(name: "Tom Brady", position: "QB", photo_url: "https://static.www.nfl.com/image/private/t_player_profile_landscape/f_auto/league/sfehmfwtg9i5gdcpqzgf")
 Player.create(name: "Aaron Rodgers", position: "QB", photo_url: "https://static.www.nfl.com/image/private/t_player_profile_landscape/f_auto/league/dwozjxa5zlhlzhu3urxy")
@@ -128,10 +128,10 @@ Player.create(name: "Falcons", position: "D", photo_url: "https://static.nfl.com
 
 
 
-100.times do
-  PlayerTeam.create(player_id: Player.all.sample.id, team_id: Team.all.sample.id)
-end
-
-250.times do
-  Ranking.create(analyst_id: rand(4..6), player_id: Player.all.sample.id, ranking: rand(1..100))
-end
+# 100.times do
+#   PlayerTeam.create(player_id: Player.all.sample.id, team_id: Team.all.sample.id)
+# end
+#
+# 250.times do
+#   Ranking.create(analyst_id: rand(4..6), player_id: Player.all.sample.id, ranking: rand(1..100))
+# end

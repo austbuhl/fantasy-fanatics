@@ -15,6 +15,7 @@
     <div class="btn-group" role="group" aria-label="Basic example">
         <%=button_to "Optimize Roster", optimal_path(@team), method: "get", class: "btn btn-success m-1" %>
         <%=button_to "Edit Roster", edit_team_path, method: "get", class: "btn btn-success m-1" %>
+        <%= button_to "Delete Team", team_path(@team), method: "delete", class: "btn btn-danger m-1"  %>
     </div>
     <table class= "table table-bordered table-sm mt-3">
         <thead class="thead-dark">
